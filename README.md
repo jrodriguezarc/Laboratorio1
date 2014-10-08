@@ -64,12 +64,19 @@ A articles represents a register article and the following properties:
 | self.byauthor          |  Searches articles with equal name of author    |
 
 
+**Creating simple Article model**
+
+```
+$ bin/rails generate model Article title:string text:texte
+```
+
+
 
 A Smart Users represents a register user like publisher:
 
 #Smart users
 
-##Generate model of users
+**Example generating model of users**
 ```
 $ rails generate model User name:string email:string
       invoke  active_record
@@ -82,13 +89,13 @@ $ rails generate model User name:string email:string
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
 | name       | t.string        |  Associates a article with specific name                                          | 
-| avatar_file_name       | t.string       |  Indicates a price of a product or article                                        |
-| avatar_content_type       | t.string       |  Indicates a price of a product or article                    |
-| avatar_file_size       | t.string       |  Indicates a price of a product or article                                        |
-| avatar_path       | t.integer       |  Indicates a price of a product or article                                        |
-| avatar_updated_at      | t.datetime       |  Indicates a price of a product or article                    |
-| created_at       | t.datetime       |  Indicates a price of a product or article                                        |
-| updated_at       | t.datetime       |  Indicates a price of a product or article                                        |
+| avatar_file_name       | t.string       |  Indicates a avatar name                                        |
+| avatar_content_type       | t.string    |  Indicates a type of file for example photo of the owner             |
+| avatar_file_size       | t.string       |  Indicates a size of file                                       |
+| avatar_path       | t.integer       |  Root of user, similary to profile page                                        |
+| avatar_updated_at      | t.datetime |  Date when the article was the avatar was updated                    |
+| created_at       | t.datetime       |  Date when the article was created                                         |
+| updated_at       | t.datetime       |  Date when the article was updated                                        |
 
 
 
@@ -108,15 +115,11 @@ $ rake db:migrate
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
+| name       | t.string        |  Associates a article with specific name                                          | 
+| idArticle       | t.integer       |  Indicates a price of a product or article                                        |
+| created_at       | t.datetime        |  Indicates a email of the article publisher                                       |
+| updated_at       | t.datetime        |  Indicates a email of the article publisher                                       |
 
-    t.string   "name"
-    t.integer  "idArticle"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 
 ##tagarticles
@@ -227,11 +230,6 @@ cordova -d plugin add /Users/your/path/here/phonegap-facebook-plugin --variable 
 ##org.apache.cordova.camera
 
 This plugin provides an API for taking pictures and for choosing images from the system's image library.
-
-###Installation
-```
-cordova plugin add org.apache.cordova.camera
-```
 
 This plugin provides an API for taking pictures and for choosing images from the system's image library.
 ###Installation
