@@ -14,7 +14,7 @@ The following resources are made available by the *SmartShopping* API:
 
 The API follows a MVC design to control the access and manipulation of these resources. 
 
-This file is auto-generated from the current state of the database. Instead of editing this file, please use the migrations feature of Active Record` to incrementally modify your database, and then regenerate this schema definition.
+This file is auto-generated from the current state of the database. Instead of editing this file, please use the migrations feature of `Active Record` to incrementally modify your database, and then regenerate this schema definition.
 
 ##Articles
 A articles represents a register article and the following properties:
@@ -481,8 +481,32 @@ ___
 ##GEMFILE
 Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. 
 
-Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as 'bundle install'. The way how we config the file is the next:
+Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as `bundle install`. The way how we config the file is the next:
 
+```
+source 'https://rubygems.org'
+gem 'rails', '4.1.5'
+gem 'pg'
+gem 'sass-rails', '~> 4.0.3'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+group :production do
+   gem 'rails_12factor'
+ end
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'spring',        group: :development
+gem "tabs_on_rails"
+gem 'devise'
+gem 'oauth2'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'acts-as-taggable-on'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+```
 
 
 #License
