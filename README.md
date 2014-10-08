@@ -202,8 +202,14 @@ ___
 #Plugins
 
 ##com.oauthio.plugins.oauthio
+This is the Cordova/Phonegap SDK for OAuth.io. OAuth.io allows you to integrate 100+ providers really easily in your web app, without worrying about each provider's OAuth specific implementation.
 
+###Installation
+```
+This plugin is supported on PhoneGap (Cordova) v3.0.0 and above.
 
+$ cordova plugin add https://github.com/oauth-io/oauth-phonegap
+```
 
 ##com.phonegap.plugins.facebookconnect	
 
@@ -219,6 +225,13 @@ cordova platform add android
 cordova -d plugin add /Users/your/path/here/phonegap-facebook-plugin --variable APP_ID="123456789" --variable APP_NAME="myApplication"
 ```
 ##org.apache.cordova.camera
+
+This plugin provides an API for taking pictures and for choosing images from the system's image library.
+
+###Installation
+```
+cordova plugin add org.apache.cordova.camera
+```
 
 This plugin provides an API for taking pictures and for choosing images from the system's image library.
 ###Installation
