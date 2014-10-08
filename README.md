@@ -199,6 +199,81 @@ add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :bt
 
 ___
 
+#Plugins
+
+##com.oauthio.plugins.oauthio
+
+
+
+##com.phonegap.plugins.facebookconnect	
+
+The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your Cordova application as you use in your web application. However, unlike in the browser, the Cordova application will use the native Facebook app to perform Single Sign On for the user. If this is not possible then the sign on will degrade gracefully using the standard dialog based authentication.
+
+This plugin requires Cordova CLI.
+###Installation
+```
+To install the plugin in your app, execute the following (replace variables where necessary)...
+cordova create myApp
+cd myApp/
+cordova platform add android
+cordova -d plugin add /Users/your/path/here/phonegap-facebook-plugin --variable APP_ID="123456789" --variable APP_NAME="myApplication"
+```
+##org.apache.cordova.camera
+
+This plugin provides an API for taking pictures and for choosing images from the system's image library.
+###Installation
+```
+cordova plugin add org.apache.cordova.camera
+```
+
+##org.apache.cordova.geolocation
+This plugin provides information about the device's location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs. There is no guarantee that the API returns the device's actual location.
+
+###Installation
+```
+cordova plugin add org.apache.cordova.geolocatio
+```
+
+###Quick Example
+```
+var onSuccess = function(position) {
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+};
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+```
+
+
+##org.apache.cordova.inappbrowser
+This plugin provides a web browser view that displays when calling window.open().
+###Installation
+```
+cordova plugin add org.apache.cordova.inappbrowser
+```
+###Quick Example
+```
+var ref = window.open('http://apache.org', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.insertCSS({file: "mystyles.css"});
+});
+```
+##android.json
+Way to get JSON info from the server
+
 
 
 
