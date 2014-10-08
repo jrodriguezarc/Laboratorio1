@@ -14,17 +14,16 @@ The following resources are made available by the *SmartShopping* API:
 
 The API follows a MVC design to control the access and manipulation of these resources. 
 
-The calls makes througth ActiveRecord
+This file is auto-generated from the current state of the database. Instead of editing this file, please use the migrations feature of `Active Record` to incrementally modify your database, and then regenerate this schema definition.
 
 ##Articles
-
 A articles represents a register article and the following properties:
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |                                       | 
-| costo       | t.integer       |              |
-| email       | t.string        |                                                                 |
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |                                                                                   |
 | direccion   | t.string        |                                                                        |
 | created_at  | t.datetime      |                                                                              |
 | updated_at  | t.datetime      |                        |
@@ -52,7 +51,7 @@ A articles represents a register article and the following properties:
 | PUT    | [/users/*{id}*](#usersid)                | Creates or updates a user                 |
 | GET    | [/users/*{id}*/matches](#usersidmatches) | Obtains the matches associated to a use   |
 
-###/users
+###/articles
 **Method**: GET
 
 Obtains user data for a list of user id's
