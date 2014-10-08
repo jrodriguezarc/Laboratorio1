@@ -65,6 +65,13 @@ A articles represents a register article and the following properties:
 
 
 ##Smart users
+
+
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
   create_table "smart_users", force: true do |t|
     t.string   "name"
     t.string   "avatar_file_name"
@@ -81,6 +88,12 @@ A articles represents a register article and the following properties:
 
 ##Tag articles
 
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
+
     t.string   "name"
     t.integer  "idArticle"
     t.datetime "created_at"
@@ -89,6 +102,12 @@ A articles represents a register article and the following properties:
 
 
 ##tagarticles
+
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
 
   create_table "tagarticles", force: true do |t|
     t.string   "name"
@@ -102,6 +121,11 @@ A articles represents a register article and the following properties:
 
 ##Taggings
 
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -111,6 +135,8 @@ A articles represents a register article and the following properties:
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
+
+
 
 **Example how add tags with id**
 
@@ -122,7 +148,11 @@ A articles represents a register article and the following properties:
 ```
 
 ##taggs
-
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
 
   create_table "taggs", force: true do |t|
     t.string   "name"
@@ -133,6 +163,12 @@ A articles represents a register article and the following properties:
   end
 
 
+
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| title       | t.string        |  Associates a article with specific name                                          | 
+| costo       | t.integer       |  Indicates a price of a product or article                                        |
+| email       | t.string        |  Indicates a email of the article publisher                                       |
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
