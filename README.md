@@ -67,7 +67,32 @@ A articles represents a register article and the following properties:
 $ bin/rails generate model Article title:string text:texte
 ```
 
-
+**¿How show list of articles on index file?**
+```
+<% @articles.each do |article| %>
+    <tr><div class="row">    
+        <br>
+            <div class="col-md-2 col-sm-3 text-center">
+		<%= image_tag article.pic.url %>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3>Nombre del producto: <%= article.title %> </h3>
+	     <%= article.text %>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%= @nickname%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%= article.updated_at %>  • <a href="#" class="text-muted">Like </a></small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+<a href="/articles/<%= article.id %>/" class="btn btn-primary pull-right btnNext">Ver</a>
+              <br><br>
+            </div>
+          </div>
+          <hr>
+    </tr>
+  <% end %>
+```
 
 A Smart Users represents a register user like publisher:
 
@@ -172,20 +197,41 @@ class TaggsController < ApplicationController
   before_action :set_tagg, only: [:show, :edit, :update, :destroy]
 ```
 
-**Example get tags object association and display this**
+**Get tags object association and display this**
 
 ```
 get 'tags/:tag', to: 'articles#index', as: :tag
 
 ```
 
-**Example ¿how to add tags?**
+**¿How to add tags?**
 
 ```
 add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 ```
+#Settings
+
+In general, the work of configuring Rails means configuring the components of Rails, as well as configuring Rails itself. The configuration file config/application.rb and environment-specific configuration files (such as config/environments/production.rb) allow you to specify the various settings that you want to pass down to all of the components.
 
 
+#Configure database
+```
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: smartshopping_development
+  pool: 5
+  username: juan
+  password: ********
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: smartshopping_test
+  pool: 5
+  username: juan
+  password: ********
+```
 ___
 
 #Plugins
@@ -193,12 +239,26 @@ ___
 ##com.oauthio.plugins.oauthio
 This is the Cordova/Phonegap SDK for OAuth.io. OAuth.io allows you to integrate 100+ providers really easily in your web app, without worrying about each provider's OAuth specific implementation.
 
+
+
+
 ###Installation
 ```
 This plugin is supported on PhoneGap (Cordova) v3.0.0 and above.
 
 $ cordova plugin add https://github.com/oauth-io/oauth-phonegap
 ```
+
+###Configure with rails
+```
+OmniAuth.config.logger = Rails.logger
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, '603630873087635' ,'61f2ff62240c8b9442bd8a5d317ddaa8'
+  provider :twitter, 'fmblDDzVwbjdwPUJwjEGzszjJ' , 'BXFYcKwnm0KqBXEDhvUuJxbjzj4FCfuByGZJ479b4gkL8SJ7HX'
+end
+```
+
 
 ##com.phonegap.plugins.facebookconnect	
 
