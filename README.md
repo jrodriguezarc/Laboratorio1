@@ -11,49 +11,37 @@ The following resources are made available by the *SmartShopping* API:
 * [users](#users)
 
 
+
 The API follows a MVC design to control the access and manipulation of these resources. 
 
-All calls accept an optional request argument called `pretty`, which indicates that the output should be human readable when equal to `true`. Not all calls return data, but since the argument also affects error messages it is useful for debugging.
+The calls makes througth ActiveRecord
 
 ##Articles
 
-A user represents a register player and the following properties:
+A articles represents a register article and the following properties:
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string  |                                                                                         | 
-| costo       | t.integer   |                                                                                         |
-| email       | t.string    |                                                                                         |
-| direccion   | t.string  |                                                                                         |
-| created_at  | t.datetime    |                                                                              |
-| updated_at  | t.datetime   |                                                                                         |
-| pic_file_name  | t.string   |                                                                                         |
-| pic_content_type  | t.string   |                                                                             |
-| pic_file_size     | t.integer     |                                                                                       |
-| pic_updated_at    | t.datetime    |                                                                                         |
-| userid      | t.integer    |                                                                                         |
-| username    | t.string |                                                                                         |
-| fotoname    | t.string   |                                                                                         |
-| score       | t.integer    |                                                                                         |
-| total_scores| t.integer   |                                                                                         |
-| text        | t.text|                                                                                         |
+| title       | t.string        |                                       | 
+| costo       | t.integer       |              |
+| email       | t.string        |                                                                 |
+| direccion   | t.string        |                                                                        |
+| created_at  | t.datetime      |                                                                              |
+| updated_at  | t.datetime      |                        |
+| pic_file_name  | t.string     |                                    |
+| pic_content_type  | t.string  |                                                                             |
+| pic_file_size     | t.integer |                                                                                       |
+| pic_updated_at    | t.datetime|    Date when the picture has updated         |
+| userid      | t.integer       |                                                                                         |
+| username    | t.string        |                                                                                         |
+| fotoname    | t.string        |                                                                                         |
+| score       | t.integer       |                                                                                         |
+| total_scores| t.integer       |                                                                                         |
+| text        | t.text          |                                                                                         |
 
      
  
        
-  
-  
-      
-     
-    
-  
-   
-    
-   
-  
-   
-
-
 ###Endpoints
 
 | Method | Request URI                              | Description                               |
@@ -471,3 +459,10 @@ ___
 ###Friends leaderboards
 
 The friends leaderboards includes only those player who are friends on Facebook with the player who queries the leaderboard. This feature is currently **not available** since Facebook integration is currently not supported.
+
+
+#Concepts 
+
+##Active Record
+**Active Record** is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database. It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
+
