@@ -111,6 +111,9 @@ $ rails g acts_as_taggable_on:migration
 $ rake db:migrate
 ```
 
+
+##Create relation for tags and articles
+
 ##Tag articles
 
 | Property    | Data Type | Description                                                                             |
@@ -120,25 +123,33 @@ $ rake db:migrate
 | created_at       | t.datetime        |  Indicates a email of the article publisher                                       |
 | updated_at       | t.datetime        |  Indicates a email of the article publisher                                       |
 
+**Matching Tags**
+
+```
+def searchtagging
+	tags = Tagging.all()
+	render json: tags, status: 200
+end
+```
+
 
 
 ##tagarticles
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
-
-  create_table "tagarticles", force: true do |t|
-    t.string   "name"
-    t.integer  "idarticle"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+| name       | t.string        |  Associates a article with specific name                                          | 
+| idarticle       | t.integer       |  Indicates a price of a product or article                                         |
+| created_at       | t.datetime        |  Date when the article was created                                      |
+| updated_at       | t.datetime        |   Date when the article was updated                                        |
 
 
+**¿How show association from tags ?**
 
+```
+class TaggsController < ApplicationController
+  before_action :set_tagg, only: [:show, :edit, :update, :destroy]
+```
 
 ##Taggings
 
