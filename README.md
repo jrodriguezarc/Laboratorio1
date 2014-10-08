@@ -14,7 +14,7 @@ The following resources are made available by the *SmartShopping* API:
 
 The API follows a MVC design to control the access and manipulation of these resources. 
 
-This file is auto-generated from the current state of the database. Instead of editing this file, please use the migrations feature of `Active Record` to incrementally modify your database, and then regenerate this schema definition.
+This file is auto-generated from the current state of the database. Instead of editing this file, please use the migrations feature of Active Record` to incrementally modify your database, and then regenerate this schema definition.
 
 ##Articles
 A articles represents a register article and the following properties:
@@ -53,7 +53,19 @@ A articles represents a register article and the following properties:
 | specialSearch     |  Obtains the matches associated to a global search for articles   |
 
 
-###/articles
+###Api::ArticlesModels
+
+
+| Method | Description                                           |
+|:-------|:------------------------------------------------------|
+| belongs_to             |  Obtains user data for a list of user id's |
+| acts_as_taggable       | Creates a relation between articles and tags (best way to relation many to many)      |
+| self.search            |  Searches articles with equal title  article    |
+| self.byauthor          |  Searches articles with equal name of author    |
+
+
+
+
 **Method**: GET
 
 Obtains user data for a list of user id's
@@ -65,7 +77,9 @@ Obtains user data for a list of user id's
 | users     | JSON array | Id's of the users                                 |
 | pretty    | boolean    | Whether to output in human readable format or not |
 
-**Example Request**
+
+
+**Example seach article**
 
 ```HTTP
 GET /users HTTP/1.1
@@ -457,15 +471,18 @@ Content-Length: 211
 ```
 ___
 
-###Friends leaderboards
-
-The friends leaderboards includes only those player who are friends on Facebook with the player who queries the leaderboard. This feature is currently **not available** since Facebook integration is currently not supported.
 
 
 #Concepts 
 
 ##Active Record
 **Active Record** is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database. It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
+
+##GEMFILE
+Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. 
+
+Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as 'bundle install'. The way how we config the file is the next:
+
 
 
 #License
