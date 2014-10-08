@@ -27,16 +27,16 @@ A articles represents a register article and the following properties:
 | direccion   | t.string        |  Return the address of the person who published the article                       |
 | created_at  | t.datetime      |  Date when the article was created                                                |
 | updated_at  | t.datetime      |  Date when the article was created                                                |
-| pic_file_name  | t.string     |  Indicates a title of a picture for articles                                      |
-| pic_content_type  | t.string  |  Indicates a type of a file associated for article                                |
-| pic_file_size     | t.integer |  Indicates a size of a file associated for article                                |
-| pic_updated_at    | t.datetime|  Date when the picture has updated                                                |
+| pic_file_name  | t.string     |  Indicates a title of a picture for articles  (file info)                         |
+| pic_content_type  | t.string  |  Indicates a type of a file associated for article (file info)                    |
+| pic_file_size     | t.integer |  Indicates a size of a file associated for article (file info)                  |
+| pic_updated_at    | t.datetime|  Date when the picture has updated (file info)                                     |
 | userid      | t.integer       |  ID of the publisher for quickly match with with the articles                     |
-| username    | t.string        |                                                                                         |
-| fotoname    | t.string        |                                                                                         |
-| score       | t.integer       |                                                                                         |
-| total_scores| t.integer       |                                                                                         |
-| text        | t.text          |                                                                                         |
+| username    | t.string        |  Name of the article owner                                                              |
+| fotoname    | t.string        |  Name of a picture to a article                                                         |
+| score       | t.integer       |  Actually points for each article                                                       |
+| total_scores| t.integer       |  Acummulates points by publication                                                      |
+| text        | t.text          |  Description on text field by article                                                   |
 
      
  
