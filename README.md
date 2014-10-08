@@ -6,10 +6,7 @@ The following resources are made available by the *SmartShopping* API:
 * [smart_users](#smart_users)
 * [tag_articles](#tag_articles)
 * [tagarticles](#tagarticles)
-* [taggings](#taggings)
 * [taggs](#taggs)
-* [users](#users)
-
 
 
 The API follows a MVC design to control the access and manipulation of these resources. 
@@ -132,8 +129,6 @@ def searchtagging
 end
 ```
 
-
-
 ##tagarticles
 
 | Property    | Data Type | Description                                                                             |
@@ -144,33 +139,7 @@ end
 | updated_at       | t.datetime        |   Date when the article was updated                                        |
 
 
-**¿How show association from tags ?**
-
-```
-class TaggsController < ApplicationController
-  before_action :set_tagg, only: [:show, :edit, :update, :destroy]
-```
-
-##Taggings
-
-| Property    | Data Type | Description                                                                             |
-|:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-
-
-**Example how add tags with id**
+**Example how represents tags with id**
 
 
 ```
@@ -178,6 +147,12 @@ class TaggsController < ApplicationController
   
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 ```
+
+##Tags
+| Property    | Data Type | Description                                                                             |
+|:------------|-----------|:----------------------------------------------------------------------------------------|
+| tags      | t.string    |  Contains the text for the tag                                                          | 
+| name      | t.integer   |  Especific ID for each unique tag                                                       |
 
 ##taggs
 | Property    | Data Type | Description                                                                             |
@@ -189,22 +164,22 @@ class TaggsController < ApplicationController
 | int       | t.string             |  Indentity for asociation                                                      |
 
 
+##Show tagging result
+**¿How show association from tags ?**
 
-**Example how get tags object association and display this**
+```
+class TaggsController < ApplicationController
+  before_action :set_tagg, only: [:show, :edit, :update, :destroy]
+```
+
+**Example get tags object association and display this**
 
 ```
 get 'tags/:tag', to: 'articles#index', as: :tag
 
 ```
 
-
-| Property    | Data Type | Description                                                                             |
-|:------------|-----------|:----------------------------------------------------------------------------------------|
-| tags      | t.string    |  Contains the text for the tag                                                          | 
-| name      | t.integer   |  Especific ID for each unique tag                                                       |
-
-
-**Example how to use tags**
+**Example ¿how to add tags?**
 
 ```
 add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
@@ -300,6 +275,8 @@ Way to get JSON info from the server
 
 
 #Concepts 
+##What is Rails?
+Rails is a web application development framework written in the Ruby language. It is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks. Experienced Rails developers also report that it makes web application development more fun.
 
 ##Active Record
 **Active Record** is the M in MVC - the model - which is the layer of the system responsible for representing business data and logic. Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database. It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
