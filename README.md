@@ -11,24 +11,48 @@ The following resources are made available by the *SmartShopping* API:
 * [users](#users)
 
 
-The API follows a REST design to control the access and manipulation of these resources. Currently none of the request require authentication, but in future release most will.
+The API follows a MVC design to control the access and manipulation of these resources. 
 
 All calls accept an optional request argument called `pretty`, which indicates that the output should be human readable when equal to `true`. Not all calls return data, but since the argument also affects error messages it is useful for debugging.
 
-##Users
+##Articles
 
 A user represents a register player and the following properties:
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| id          | string    | Id of the Facebook account associated with the user (*Currently any id works*)          |
-| avatar      | string    | Representation of the user's display image (*Currently just a string*)                  |
-| countryCode | string    | Abbreviation for the country from where the user plays, used for localized leaderboards |
-| displayName | string    | String displayed instead of the user's name                                             |
-| experience  | integer   | Total points earned                                                                     |
-| loggedIn    | boolean   | Whether the user is logged in or not (*Currenlty not used*)                             |
-| rank        | integer   | Level of the user, based on the experience                                              |
-| timestamp   | datetime  | Day and time the user was created                                                       |
+| title       | t.string  |                                                                                         | 
+| costo       | t.integer   |                                                                                         |
+| email       | t.string    |                                                                                         |
+| direccion   | t.string  |                                                                                         |
+| created_at  | t.datetime    |                                                                              |
+| updated_at  | t.datetime   |                                                                                         |
+| pic_file_name  | t.string   |                                                                                         |
+| pic_content_type  | t.string   |                                                                             |
+| pic_file_size     | t.integer     |                                                                                       |
+| pic_updated_at    | t.datetime    |                                                                                         |
+| userid      | t.integer    |                                                                                         |
+| username    | t.string |                                                                                         |
+| fotoname    | t.string   |                                                                                         |
+| score       | t.integer    |                                                                                         |
+| total_scores| t.integer   |                                                                                         |
+| text        | t.text|                                                                                         |
+
+     
+ 
+       
+  
+  
+      
+     
+    
+  
+   
+    
+   
+  
+   
+
 
 ###Endpoints
 
