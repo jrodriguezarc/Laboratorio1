@@ -64,27 +64,45 @@ A articles represents a register article and the following properties:
 | self.byauthor          |  Searches articles with equal name of author    |
 
 
-##Smart users
 
+A Smart Users represents a register user like publisher:
+
+#Smart users
+
+##Generate model of users
+```
+$ rails generate model User name:string email:string
+      invoke  active_record
+      create    db/migrate/[timestamp]_create_users.rb
+      create    app/models/user.rb
+      invoke    rspec
+      create      spec/models/user_spec.rb
+```
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
-  create_table "smart_users", force: true do |t|
-    t.string   "name"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.string   "avatar_path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+| name       | t.string        |  Associates a article with specific name                                          | 
+| avatar_file_name       | t.string       |  Indicates a price of a product or article                                        |
+| avatar_content_type       | t.string       |  Indicates a price of a product or article                    |
+| avatar_file_size       | t.string       |  Indicates a price of a product or article                                        |
+| avatar_path       | t.integer       |  Indicates a price of a product or article                                        |
+| avatar_updated_at      | t.datetime       |  Indicates a price of a product or article                    |
+| created_at       | t.datetime       |  Indicates a price of a product or article                                        |
+| updated_at       | t.datetime       |  Indicates a price of a product or article                                        |
 
-  create_table "tag_articles", force: true do |t|
 
+
+
+Adding Tagging With Acts-as-Taggable-on
+
+There are a lot of tagging libraries available but by far the most popular is acts-as-taggable-on. This gem is a little dated but it’s one of the few to have been maintained over the years. To use it in a Rails application we just need to add it to the gemfile then run bundle to install it.
+
+**Example Tagging**
+
+```
+$ rails g acts_as_taggable_on:migration
+$ rake db:migrate
+```
 
 ##Tag articles
 
@@ -150,30 +168,26 @@ A articles represents a register article and the following properties:
 ##taggs
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
+| created_at       | t.datetime       | Indicates date when the tag was associated                                  | 
+| updated_at       | t.datetime       | Indicates date when the tag was updated(association)                        |
+| name       | t.string             |  Contains a string with the tag name                                      |
+| idarticle       | t.string        |  Contains a integer with the tag id                                       |
+| int       | t.string             |  Indentity for asociation                                                      |
 
-  create_table "taggs", force: true do |t|
-    t.string   "name"
-    t.string   "idarticle"
-    t.string   "int"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
+
+**Example how get tags object association and display this**
+
+```
+get 'tags/:tag', to: 'articles#index', as: :tag
+
+```
 
 
 | Property    | Data Type | Description                                                                             |
 |:------------|-----------|:----------------------------------------------------------------------------------------|
-| title       | t.string        |  Associates a article with specific name                                          | 
-| costo       | t.integer       |  Indicates a price of a product or article                                        |
-| email       | t.string        |  Indicates a email of the article publisher                                       |
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-  end
-
+| tags      | t.string    |  Contains the text for the tag                                                          | 
+| name      | t.integer   |  Especific ID for each unique tag                                                       |
 
 
 **Example how to use tags**
@@ -183,19 +197,6 @@ add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :bt
 ```
 
 
-
-##Users
-
-  create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "score"
-  end
 ___
 
 
